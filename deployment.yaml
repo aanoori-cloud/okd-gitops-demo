@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitops-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitops-web
+  template:
+    metadata:
+      labels:
+        app: gitops-web
+    spec:
+      containers:
+      - name: web
+        image: docker.io/aanoori4721/okd-sample:v1
+        ports:
+        - containerPort: 8080
